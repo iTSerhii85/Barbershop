@@ -1,0 +1,24 @@
+:root {
+  // background
+  --color-background-main: #ffffff;
+  --color-background-second: #f7f7f7;
+  --color-background-accent: #191c26;
+
+  // text
+  --color-text-main: #303030;
+  --color-text-second: #555555;
+  --color-text-white: #ffffff;
+  --color-text-light: #9da4bd;
+
+  // accent
+  --color-accent: #ff6c00;
+
+  // fonts
+  --font-family-main: 'Open Sans', sans-serif;
+  --font-family-title: 'Raleway', sans-serif;
+
+  // transition
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --slow-anim: 200ms ease;
+  --fast-anim: 400ms ease-in-out;
+}

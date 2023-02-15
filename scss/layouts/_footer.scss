@@ -1,0 +1,26 @@
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding-top: 44px;
+  padding-bottom: 44px;
+
+  @include mq(tablet) {
+    align-items: center;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.copyright {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.36;
+
+  color: var(--color-text-light);
+
+  @include mq(tablet) {
+    padding-top: 0;
+  }
+}

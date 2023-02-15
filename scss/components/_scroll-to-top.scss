@@ -1,0 +1,51 @@
+.fix-down {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+
+  & .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-bottom: 15px;
+
+    @include mq(desktop) {
+      max-width: 1300px;
+    }
+  }
+}
+
+.scroll-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: auto;
+
+  width: 25px;
+  height: 25px;
+
+  background-color: rgba(255, 106, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  animation: slide-top 1s linear 2s infinite alternate both;
+
+  @include mq(tablet) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.arrow-top {
+  fill: var(--color-text-white);
+
+  width: 10px;
+  height: 10px;
+
+  @include mq(tablet) {
+    width: 10px;
+    height: 10px;
+  }
+}

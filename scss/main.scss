@@ -1,0 +1,36 @@
+// utils
+@import './utils/variables';
+@import './utils/placeholders';
+@import './utils/mixins';
+@import './utils/breakpoints';
+
+// base styles
+@import './base/reset';
+@import './base/common';
+@import './base/section';
+@import './base/container';
+@import './base/animations';
+@import './base/js-selectors';
+
+// components
+@import './components/visually-hidden';
+@import './components/button';
+@import './components/social-links';
+@import './components/socials';
+@import './components/modal/backdrop';
+@import './components/modal/modal-form';
+@import './components/modal/modal';
+@import './components/slider';
+@import './components/mobile-menu';
+@import './components/scroll-to-top';
+
+// layuots
+@import './layouts/header';
+@import './layouts/hero';
+@import './layouts/about';
+@import './layouts/benefits';
+@import './layouts/price';
+@import './layouts/team';
+@import './layouts/gallery';
+@import './layouts/contacts';
+@import './layouts/footer';

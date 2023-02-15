@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon shortcut" type="image/x-icon" href="images/favicon.svg" />
+    <title>Barbershop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body id="body" style="overflow: unset">
+    <!-- header -->
+    <header class="header" id="header">
+      <div class="header__container container">
+        <a class="link" href="./index.html" aria-label="Company Logo">
+          <svg class="logo" width="69" height="56">
+            <use href="./images/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <nav class="navigation">
+          <ul class="navigation__list list">
+            <li class="navigation__item">
+              <a class="navigation__link link" href="#about" aria-label="About">About</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link link" href="#price" aria-label="Services and Prices"
+                >Services and Prices</a
+              >
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link link" href="#team" aria-label="Barbers">Barbers</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link link" href="#contacts" aria-label="Contacts">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__group">
+          <a class="header__phone link" href="tel:+380000000000" aria-label="telephone"
+            >+38 (000) 000 00 00</a
+          >
+          <button class="btn btn--mode-dark js-modal-open" type="button">Book a Service</button>
+        </div>
+        <button
+          class="mobile-btn js-mobile-menu-button"
+          type="button"
+          aria-label="Mobile menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg class="mobile-btn__icon" width="40" height="40">
+            <use class="mobile-btn__icon-open" href="./images/sprite.svg#menu"></use>
+            <use class="mobile-btn__icon-close" href="./images/sprite.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+      <!-- mobile-menu -->
+      <div class="header__mobile-menu mobile-menu js-mobile-menu" id="mobile-menu">
+        <nav class="mobile-menu__navigation">
+          <ul class="mobile-menu__navigation-list list js-mobile-menu-links">
+            <li class="mobile-menu__navigation-item">
+              <a class="mobile-menu__navigation-link link" href="#about" aria-label="About"
+                >About</a
+              >
+            </li>
+            <li class="mobile-menu__navigation-item">
+              <a
+                class="mobile-menu__navigation-link link"
+                href="#price"
+                aria-label="Services and Prices"
+                >Services and Prices</a
+              >
+            </li>
+            <li class="mobile-menu__navigation-item">
+              <a class="mobile-menu__navigation-link link" href="#team" aria-label="Barbers"
+                >Barbers</a
+              >
+            </li>
+            <li class="mobile-menu__navigation-item">
+              <a class="mobile-menu__navigation-link link" href="#contacts" aria-label="Contacts"
+                >Contacts</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <a class="contacts__phone link" href="tel:+380000000000">+38 (000) 000 00 00</a>
+        <button class="btn btn--mode-light js-mobile-modal-open" type="button">
+          Book a Service
+        </button>
+        <ul class="mobile-menu__socials socials list">
+          <li class="socials__item">
+            <a class="socials__link link" href="" target="_blank" rel="noreferrer noopener"
+              >Instagram</a
+            >
+          </li>
+          <li class="socials__item">
+            <a class="socials__link link" href="" target="_blank" rel="noreferrer noopener"
+              >Youtube</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- modal window -->
+    <div class="backdrop is-hidden js-modal js-mobile-modal">
+      <div class="modal">
+        <button class="modal__btn-close js-modal-close js-mobile-modal-close" aria-label="Close">
+          <svg class="modal__icon" width="40" height="40">
+            <use href="./images/sprite.svg#close"></use>
+          </svg>
+        </button>
+        <p class="modal__title">Leave your contacts, we'll call you back</p>
+        <form class="form" name="form-contacts" autocomplete="on">
+          <label class="form__field">
+            <span class="form__label">Name</span>
+            <span class="form__wrapper">
+              <input
+                class="form__input"
+                type="text"
+                name="user-name"
+                placeholder="Name"
+                minlength="2"
+                pattern="[a-zA-Zа-яґіїєА-ЯІЇҐЄ\s]+"
+                title="Cyrillic / Latin uppercase / lowercase letters and spaces"
+                required
+              />
+              <svg class="form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#person"></use>
+              </svg>
+            </span>
+          </label>
+          <label class="form__field">
+            <span class="form__label">Phone</span>
+            <span class="form__wrapper">
+              <input
+                class="form__input"
+                type="tel"
+                name="user-tel"
+                placeholder="0-9"
+                pattern="[0-9]"
+                title="digits without +"
+                required
+              />
+              <svg class="form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#telephone"></use>
+              </svg>
+            </span>
+          </label>
+          <label class="form__field">
+            <span class="form__label">Email</span>
+            <span class="form__wrapper">
+              <input
+                class="form__input"
+                type="email"
+                name="user-email"
+                placeholder="example@email.com"
+                title="example@email.com"
+                required
+              />
+              <svg class="form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#email"></use>
+              </svg>
+            </span>
+          </label>
+          <label class="form__field form__field-comment">
+            <span class="form__label">Message</span>
+            <textarea
+              class="form__comment"
+              name="user-comment"
+              placeholder="Type a message here"
+            ></textarea>
+          </label>
+          <label class="form__field form__field-checkbox">
+            <span class="form__wrapper form__wrapper-checkbox">
+              <input
+                class="form__input-checkbox visually-hidden"
+                type="checkbox"
+                name="agreement"
+                required
+              />
+              <svg class="form__icon form__icon--checked" width="16" height="15">
+                <use href="./images/sprite.svg#check"></use>
+              </svg>
+              <span class="form__icon form__icon--unchecked"></span>
+            </span>
+            <span class="form__label form__label-checkbox">
+              I agree with
+              <a href="" class="form__agreement link">The terms and conditions</a>
+            </span>
+          </label>
+          <button type="submit" class="form__btn btn btn--mode-light">Send</button>
+        </form>
+      </div>
+    </div>
+    <!-- main-sections -->
+    <main>
+      <!-- section-hero -->
+      <section class="hero" id="hero">
+        <div class="hero__container container">
+          <!-- sidebar -->
+          <div class="sidebar">
+            <ul class="socials list">
+              <li class="socials__item">
+                <a class="socials__link link" href="" target="_blank" rel="noreferrer noopener"
+                  >Instagram</a
+                >
+              </li>
+              <li class="socials__item">
+                <a class="socials__link link" href="" target="_blank" rel="noreferrer noopener"
+                  >Youtube</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- tittle-group -->
+          <div class="hero__group title-group">
+            <p class="uppertitle uppertitle--mode-light">A hair salon for men in Kyiv</p>
+            <h1 class="main-tittle">BarberShop</h1>
+            <p class="subtitle subtitle--mode-light">
+              We are experts in trendy men`s haircuts. We work quickly, carefully and with style.
+            </p>
+          </div>
+          <!-- slider -->
+          <div class="hero_slider slider">
+            <ul class="slider__pagination list">
+              <li class="slider__item"><a href="#slide-1" onclick="currentSlide(1)"></a></li>
+              <li class="slider__item"><a href="#slide-2" onclick="currentSlide(2)"></a></li>
+              <li class="slider__item"><a href="#slide-3" onclick="currentSlide(3)"></a></li>
+            </ul>
+            <div class="slides">
+              <div class="slide fade" id="slide-1">
+                <picture class="slide__img">
+                  <source
+                    media="(min-width:1280px)"
+                    srcset="
+                      ./images/slider/slide-1-desktop.webp    1x,
+                      ./images/slider/slide-1-desktop@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <source
+                    media="(min-width:768px)"
+                    srcset="
+                      ./images/slider/slide-1-tablet.webp    1x,
+                      ./images/slider/slide-1-tablet@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width:767px)"
+                    srcset="
+                      ./images/slider/slide-1-mobile.webp    1x,
+                      ./images/slider/slide-1-mobile@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <img
+                    srcset="
+                      ./images/slider/slide-1-mobile.jpg      480w,
+                      ./images/slider/slide-1-mobile@2x.jpg   960w,
+                      ./images/slider/slide-1-tablet.jpg      609w,
+                      ./images/slider/slide-1-tablet@2x.jpg  1218w,
+                      ./images/slider/slide-1-desktop.jpg    1125w,
+                      ./images/slider/slide-1-desktop@2x.jpg 2250w
+                    "
+                    src="./images/slider/slide-1-mobile.jpg"
+                    title="Men’s haircut"
+                    alt="Men’s haircut"
+                    sizes="(min-width:1280px) 1125px, (min-width:768px) 609px, (max-width:767px) 480px, 100vw"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <div class="slide fade" id="slide-2">
+                <picture class="slide__img">
+                  <source
+                    media="(min-width:1280px)"
+                    srcset="
+                      ./images/slider/slide-2-desktop.webp    1x,
+                      ./images/slider/slide-2-desktop@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <source
+                    media="(min-width:768px)"
+                    srcset="
+                      ./images/slider/slide-2-tablet.webp    1x,
+                      ./images/slider/slide-2-tablet@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width:767px)"
+                    srcset="
+                      ./images/slider/slide-2-mobile.webp    1x,
+                      ./images/slider/slide-2-mobile@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <img
+                    srcset="
+                      ./images/slider/slide-2-mobile.jpg      480w,
+                      ./images/slider/slide-2-mobile@2x.jpg   960w,
+                      ./images/slider/slide-2-tablet.jpg      609w,
+                      ./images/slider/slide-2-tablet@2x.jpg  1218w,
+                      ./images/slider/slide-2-desktop.jpg    1125w,
+                      ./images/slider/slide-2-desktop@2x.jpg 2250w
+                    "
+                    src="./images/slider/slide-2-mobile.jpg"
+                    title="Straight razor shave"
+                    alt="Straight razor shave"
+                    sizes="(min-width:1280px) 1125px, (min-width:768px) 609px, (max-width:767px) 480px, 100vw"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <div class="slide fade" id="slide-3">
+                <picture class="slide__img">
+                  <source
+                    media="(min-width:1280px)"
+                    srcset="
+                      ./images/slider/slide-3-desktop.webp    1x,
+                      ./images/slider/slide-3-desktop@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <source
+                    media="(min-width:768px)"
+                    srcset="
+                      ./images/slider/slide-3-tablet.webp    1x,
+                      ./images/slider/slide-3-tablet@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width:767px)"
+                    srcset="
+                      ./images/slider/slide-3-mobile.webp    1x,
+                      ./images/slider/slide-3-mobile@2x.webp 2x
+                    "
+                    type="image/webp"
+                  />
+                  <img
+                    srcset="
+                      ./images/slider/slide-3-mobile.jpg      480w,
+                      ./images/slider/slide-3-mobile@2x.jpg   960w,
+                      ./images/slider/slide-3-tablet.jpg      609w,
+                      ./images/slider/slide-3-tablet@2x.jpg  1218w,
+                      ./images/slider/slide-3-desktop.jpg    1125w,
+                      ./images/slider/slide-3-desktop@2x.jpg 2250w
+                    "
+                    src="./images/slider/slide-3-mobile.jpg"
+                    title="Camouflage of gray hair"
+                    alt="Camouflage of gray hair"
+                    sizes="(min-width:1280px) 1125px, (min-width:768px) 609px, (max-width:767px) 480px, 100vw"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+            </div>
+            <ul class="slider__controls list">
+              <li class="slider__controls-item">
+                <a class="slider__controls-btn" onclick="plusSlides(-1)">← Previous</a>
+              </li>
+              <li class="slider__controls-item">
+                <a
+                  class="slider__controls-btn slider__controls-btn--forward"
+                  onclick="plusSlides(1)"
+                  >Following →</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- section-about -->
+      <section class="about section" id="about">
+        <div class="about__container container">
+          <ul class="about__list list">
+            <li class="about__item">
+              <picture>
+                <source
+                  media="(min-width:1280px )"
+                  srcset="
+                    ./images/about/about-1-desktop.webp    1x,
+                    ./images/about/about-1-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px )"
+                  srcset="
+                    ./images/about/about-1-tablet.webp    1x,
+                    ./images/about/about-1-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="about__image"
+                  src="./images/about/about-1-desktop.jpg"
+                  title="Beard trim"
+                  alt="Beard trim"
+                  srcset="
+                    ./images/about/about-1-desktop.jpg    270w,
+                    ./images/about/about-1-desktop@2x.jpg 540w,
+                    ./images/about/about-1-tablet.jpg     330w,
+                    ./images/about/about-1-tablet@2x.jpg  660w
+                  "
+                  sizes="(min-width:1280px) 270px, (min-width:768px) 330px, 100vw"
+                  width="270"
+                  height="445"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
+            <li class="about__item">
+              <picture>
+                <source
+                  media="(min-width:1280px )"
+                  srcset="
+                    ./images/about/about-2-desktop.webp    1x,
+                    ./images/about/about-2-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px )"
+                  srcset="
+                    ./images/about/about-2-tablet.webp    1x,
+                    ./images/about/about-2-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="about__image"
+                  src="./images/about/about-2-desktop.jpg"
+                  title="Straight razor shave"
+                  alt="Straight razor shave"
+                  srcset="
+                    ./images/about/about-2-desktop.jpg    270w,
+                    ./images/about/about-2-desktop@2x.jpg 540w,
+                    ./images/about/about-2-tablet.jpg     330w,
+                    ./images/about/about-2-tablet@2x.jpg  660w
+                  "
+                  sizes="(min-width:1280px) 270px, (min-width:768px) 330px, 100vw"
+                  width="270"
+                  height="445"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
+          </ul>
+          <div class="about__group">
+            <div class="title-group">
+              <p class="uppertitle">About</p>
+              <h2 class="section-title section-title--size-s">Best Barbershop <br />in Kyiv</h2>
+              <p class="subtitle subtitle--mode-dark subtitle--size-s">
+                If you want to add more confidence to your image, you should definitely visit us.
+              </p>
+              <p class="description">
+                We are a team that never stops at what has been achieved and are thirsty for
+                changes. And when you fall into the hands of our master, you will never be the same
+                again. We are a team that is always "on the same wave" with clients. Therefore, we
+                are always ready to improve everyone who comes to us!
+              </p>
+            </div>
+            <a class="link btn btn--mode-light" href="#contacts">Book a Service</a>
+          </div>
+        </div>
+      </section>
+      <!-- section-services-and-prices -->
+      <section class="price section" id="price">
+        <div class="container">
+          <div class="price__group title-group">
+            <p class="uppertitle uppertitle--mode-light">Spend time with the best masters</p>
+            <h2 class="section-title section-title--mode-light">Services and Prices</h2>
+          </div>
+          <ul class="price__list list">
+            <li class="price__item">
+              <ul class="price__inner-list list">
+                <li class="price__inner-item"><span>Men's Haircut</span><span>from 300 ₴</span></li>
+                <li class="price__inner-item"><span>Beard Trim</span><span>from 200 ₴</span></li>
+                <li class="price__inner-item"><span>Mustache Trim</span><span>from 200 ₴</span></li>
+                <li class="price__inner-item">
+                  <span>Straight Razor Shave</span><span>from 200 ₴</span>
+                </li>
+              </ul>
+            </li>
+            <li class="price__item">
+              <ul class="price__inner-list list">
+                <li class="price__inner-item">
+                  <span>Trainee Haircut</span><span>from 100 ₴</span>
+                </li>
+                <li class="price__inner-item"><span>Buzz Cut</span><span>from 200 ₴</span></li>
+                <li class="price__inner-item">
+                  <span>Children’s haircut (0-12 y.o.)</span><span>from 200 ₴</span>
+                </li>
+                <li class="price__inner-item price__item-last">
+                  <span>Gray Coverage</span><span>from 200 ₴</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <a class="link btn btn--mode-dark" href="#contacts">Book a Service</a>
+        </div>
+      </section>
+      <!-- section-benefits -->
+      <section class="benefits section" id="benefits">
+        <div class="benefits__container container">
+          <div class="benefits__group title-group">
+            <p class="uppertitle">Old traditional school</p>
+            <h2 class="section-title">Why do they come to us?</h2>
+            <p class="subtitle subtitle--mode-dark">
+              Only good things are said about us. But it's better to see and feel 1 time than read
+              10 times.
+            </p>
+          </div>
+          <ul class="benefits__list list">
+            <li class="benefits__item" data-aos="zoom-in-up" data-aos-delay="200">
+              <p class="benefits__amount">600<sup class="benefits__amount--decor">+</sup></p>
+              <p class="benefits__text">satisfied customers per day</p>
+            </li>
+            <li class="benefits__item" data-aos="zoom-in-up" data-aos-delay="300">
+              <p class="benefits__amount">50<sup class="benefits__amount--decor">+</sup></p>
+              <p class="benefits__text">awards for excellent service</p>
+            </li>
+            <li class="benefits__item" data-aos="zoom-in-up" data-aos-delay="400">
+              <p class="benefits__amount">20<sup class="benefits__amount--decor">+</sup></p>
+              <p class="benefits__text">best barbers in Kyiv</p>
+            </li>
+            <li class="benefits__item" data-aos="zoom-in-up" data-aos-delay="500">
+              <p class="benefits__amount">100<sup class="benefits__amount--decor">+</sup></p>
+              <p class="benefits__text">gifts for regular customers</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- section-team -->
+      <section class="team section" id="team">
+        <div class="container">
+          <div class="team__group title-group">
+            <p class="uppertitle">for true enjoyers of the atmosphere</p>
+            <h2 class="section-title">Our Barbers</h2>
+          </div>
+          <ul class="team__list list">
+            <li class="team__item" data-aos="zoom-in-up" data-aos-delay="200">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/team/member-1-desktop.webp    1x,
+                    ./images/team/member-1-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/team/member-1-tablet.webp    1x,
+                    ./images/team/member-1-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/team/member-1-mobile.webp    1x,
+                    ./images/team/member-1-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="team__image"
+                  srcset="
+                    ./images/team/member-1-mobile.jpg     418w,
+                    ./images/team/member-1-mobile@2x.jpg  836w,
+                    ./images/team/member-1-tablet.jpg     450w,
+                    ./images/team/member-1-tablet@2x.jpg  900w,
+                    ./images/team/member-1-desktop.jpg    370w,
+                    ./images/team/member-1-desktop@2x.jpg 740w
+                  "
+                  src="./images/team/member-1-mobile.jpg"
+                  title="John Smith"
+                  alt="John Smith"
+                  sizes="(min-width:1280px) 370px, (min-width:768px) 450px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="346"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="team__wrap">
+                <h3 class="team__title">John Smith</h3>
+                <p class="team__description">Extreme Barber</p>
+                <ul class="social-links list">
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#instagram"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Twitter"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#facebook"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Linkedin"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#linkedin"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="team__item" data-aos="zoom-in-up" data-aos-delay="300">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/team/member-2-desktop.webp    1x,
+                    ./images/team/member-2-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/team/member-2-tablet.webp    1x,
+                    ./images/team/member-2-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/team/member-2-mobile.webp    1x,
+                    ./images/team/member-2-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="team__image"
+                  srcset="
+                    ./images/team/member-2-mobile.jpg     418w,
+                    ./images/team/member-2-mobile@2x.jpg  836w,
+                    ./images/team/member-2-tablet.jpg     450w,
+                    ./images/team/member-2-tablet@2x.jpg  900w,
+                    ./images/team/member-2-desktop.jpg    370w,
+                    ./images/team/member-2-desktop@2x.jpg 740w
+                  "
+                  src="./images/team/member-2-mobile.jpg"
+                  title="Michele Doe"
+                  alt="Michele Doe"
+                  sizes="(min-width:1280px) 370px, (min-width:768px) 450px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="346"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="team__wrap">
+                <h3 class="team__title">Michele Doe</h3>
+                <p class="team__description">Extreme Barber</p>
+                <ul class="social-links list">
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#instagram"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Twitter"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#facebook"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Linkedin"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#linkedin"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="team__item" data-aos="zoom-in-up" data-aos-delay="400">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/team/member-3-desktop.webp    1x,
+                    ./images/team/member-3-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/team/member-3-tablet.webp    1x,
+                    ./images/team/member-3-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/team/member-3-mobile.webp    1x,
+                    ./images/team/member-3-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="team__image"
+                  srcset="
+                    ./images/team/member-3-mobile.jpg     418w,
+                    ./images/team/member-3-mobile@2x.jpg  836w,
+                    ./images/team/member-3-tablet.jpg     450w,
+                    ./images/team/member-3-tablet@2x.jpg  900w,
+                    ./images/team/member-3-desktop.jpg    370w,
+                    ./images/team/member-3-desktop@2x.jpg 740w
+                  "
+                  src="./images/team/member-3-mobile.jpg"
+                  title="Alan Black"
+                  alt="Alan Black"
+                  sizes="(min-width:1280px) 370px, (min-width:768px) 450px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="346"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="team__wrap">
+                <h3 class="team__title">Alan Black</h3>
+                <p class="team__description">Extreme Barber</p>
+                <ul class="social-links list">
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#instagram"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Twitter"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#facebook"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="social-links__item">
+                    <a
+                      class="social-links__link link"
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Linkedin"
+                    >
+                      <svg class="social-links__icon" width="20" height="20">
+                        <use href="./images/sprite.svg#linkedin"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- section-gallery -->
+      <section class="gallery section" id="gallery">
+        <div class="container">
+          <div class="gallery__group title-group">
+            <p class="uppertitle">In Latin, "barba" means "beard"</p>
+            <h2 class="section-title visually-hidden">Our portfolio</h2>
+          </div>
+          <ul class="gallery__list list">
+            <li class="gallery__item" data-discount="Discount 50%">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/portfolio/portfolio-1-desktop.webp    1x,
+                    ./images/portfolio/portfolio-1-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/portfolio/portfolio-1-tablet.webp    1x,
+                    ./images/portfolio/portfolio-1-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/portfolio/portfolio-1-mobile.webp    1x,
+                    ./images/portfolio/portfolio-1-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="gallery__image"
+                  srcset="
+                    ./images/portfolio/portfolio-1-desktop.jpg    270w,
+                    ./images/portfolio/portfolio-1-desktop@2x.jpg 540w,
+                    ./images/portfolio/portfolio-1-tablet.webp    330w,
+                    ./images/portfolio/portfolio-1-tablet@2x.webp 660w,
+                    ./images/portfolio/portfolio-1-mobile.webp    418w,
+                    ./images/portfolio/portfolio-1-mobile@2x.webp 836w
+                  "
+                  src="./images/portfolio/portfolio-1-mobile.jpg"
+                  title="Men's Haircut"
+                  alt="Men's Haircut"
+                  sizes="(min-width:1280px) 270px, (min-width:768px) 330px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="360"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
+            <li class="gallery__item" data-discount="Discount 30%">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/portfolio/portfolio-2-desktop.webp    1x,
+                    ./images/portfolio/portfolio-2-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/portfolio/portfolio-2-tablet.webp    1x,
+                    ./images/portfolio/portfolio-2-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/portfolio/portfolio-2-mobile.webp    1x,
+                    ./images/portfolio/portfolio-2-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="gallery__image"
+                  srcset="
+                    ./images/portfolio/portfolio-2-desktop.jpg    270w,
+                    ./images/portfolio/portfolio-2-desktop@2x.jpg 540w,
+                    ./images/portfolio/portfolio-2-tablet.webp    330w,
+                    ./images/portfolio/portfolio-2-tablet@2x.webp 660w,
+                    ./images/portfolio/portfolio-2-mobile.webp    418w,
+                    ./images/portfolio/portfolio-2-mobile@2x.webp 836w
+                  "
+                  src="./images/portfolio/portfolio-2-mobile.jpg"
+                  title="Beard Trim"
+                  alt="Beard Trim"
+                  sizes="(min-width:1280px) 270px, (min-width:768px) 330px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="360"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
+            <li class="gallery__item" data-discount="Discount 25%">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/portfolio/portfolio-3-desktop.webp    1x,
+                    ./images/portfolio/portfolio-3-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/portfolio/portfolio-3-tablet.webp    1x,
+                    ./images/portfolio/portfolio-3-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/portfolio/portfolio-3-mobile.webp    1x,
+                    ./images/portfolio/portfolio-3-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="gallery__image"
+                  srcset="
+                    ./images/portfolio/portfolio-3-desktop.jpg    270w,
+                    ./images/portfolio/portfolio-3-desktop@2x.jpg 540w,
+                    ./images/portfolio/portfolio-3-tablet.webp    330w,
+                    ./images/portfolio/portfolio-3-tablet@2x.webp 660w,
+                    ./images/portfolio/portfolio-3-mobile.webp    418w,
+                    ./images/portfolio/portfolio-3-mobile@2x.webp 836w
+                  "
+                  src="./images/portfolio/portfolio-3-mobile.jpg"
+                  title="Mustache Trim"
+                  alt="Mustache Trim"
+                  sizes="(min-width:1280px) 270px, (min-width:768px) 330px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="360"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
+            <li class="gallery__item" data-discount="Discount 20%">
+              <picture>
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/portfolio/portfolio-4-desktop.webp    1x,
+                    ./images/portfolio/portfolio-4-desktop@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    ./images/portfolio/portfolio-4-tablet.webp    1x,
+                    ./images/portfolio/portfolio-4-tablet@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width:767px)"
+                  srcset="
+                    ./images/portfolio/portfolio-4-mobile.webp    1x,
+                    ./images/portfolio/portfolio-4-mobile@2x.webp 2x
+                  "
+                  type="image/webp"
+                />
+                <img
+                  class="gallery__image"
+                  srcset="
+                    ./images/portfolio/portfolio-4-desktop.jpg    270w,
+                    ./images/portfolio/portfolio-4-desktop@2x.jpg 540w,
+                    ./images/portfolio/portfolio-4-tablet.webp    330w,
+                    ./images/portfolio/portfolio-4-tablet@2x.webp 660w,
+                    ./images/portfolio/portfolio-4-mobile.webp    418w,
+                    ./images/portfolio/portfolio-4-mobile@2x.webp 836w
+                  "
+                  src="./images/portfolio/portfolio-4-mobile.jpg"
+                  title="Straight Razor Shave"
+                  alt="Straight Razor Shave"
+                  sizes="(min-width:1280px) 270px, (min-width:768px) 330px, (max-width:767px) 418px, 100vw"
+                  width="418"
+                  height="360"
+                  loading="lazy"
+                />
+              </picture>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- section-contacts -->
+      <section class="contacts section" id="contacts">
+        <div class="contacts__container container">
+          <!-- form-book-a-service -->
+          <div class="contacts__form" id="book">
+            <h2 class="section-title section-title--mode-light">Book a Service</h2>
+            <form class="form" name="form-contacts" autocomplete="on">
+              <label class="form__field" aria-label="Name">
+                <input
+                  class="form__input"
+                  type="text"
+                  name="user-name"
+                  placeholder="Name"
+                  minlength="2"
+                  pattern="[a-zA-Zа-яґіїєА-ЯІЇҐЄ\s]+"
+                  title="Cyrillic / Latin uppercase / lowercase letters and spaces"
+                  required
+                />
+                <span class="form__label">Name*</span>
+              </label>
+              <label class="form__field" aria-label="Phone">
+                <input
+                  class="form__input"
+                  type="tel"
+                  name="user-phone"
+                  required
+                  placeholder="0-9"
+                  pattern="[0-9]"
+                  title="digits without +"
+                  required
+                />
+                <span class="form__label">Telephone*</span>
+              </label>
+              <label class="form__field form__field-comment" aria-label="Comment">
+                <textarea
+                  class="form__comment"
+                  name="comment"
+                  placeholder="Type a message here"
+                ></textarea>
+                <span class="form__label">Message</span>
+              </label>
+            </form>
+            <button class="form__btn btn btn--mode-dark" type="submit">send</button>
+          </div>
+          <!-- block-contacts -->
+          <div class="contacts__group">
+            <h2 class="section-title section-title--mode-light">Contacts</h2>
+            <div class="contacts__wrapper">
+              <address class="address">
+                <ul class="address__list list">
+                  <li class="address__item">
+                    <a
+                      class="adress__link link"
+                      href="https://goo.gl/maps/Woy7gK1FS6L91RGz7"
+                      aria-label="location"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg class="address__icon" width="24" height="24">
+                        <use href="./images/sprite.svg#map-pin"></use>
+                      </svg>
+                      Khreschatyk St, 1, Kyiv, 01001
+                    </a>
+                  </li>
+                  <li class="address__item">
+                    <a class="adress__link link" href="tel:+380000000000" aria-label="call">
+                      <svg class="address__icon" width="24" height="24">
+                        <use href="./images/sprite.svg#call"></use>
+                      </svg>
+                      +38 (000) 000 00 00
+                    </a>
+                  </li>
+                  <li class="address__item">
+                    <a class="adress__link link" href="mailto:example@email.com" aria-label="email">
+                      <svg class="address__icon" width="24" height="24">
+                        <use href="./images/sprite.svg#mail"></use>
+                      </svg>
+                      example@email.com
+                    </a>
+                  </li>
+                </ul>
+              </address>
+              <div class="worktime">
+                <p class="uppertitle uppertitle--mode-light">working hours</p>
+                <p class="subtitle subtitle--mode-light">Every day from 9:00 to 22:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer__container container">
+        <p class="copyright">&#169; Copyright</p>
+        <ul class="socials list">
+          <li class="socials__item">
+            <a class="socials__link link" href="" target="_blank" rel="noreferrer noopener"
+              >Instagram</a
+            >
+          </li>
+          <li class="socials__item">
+            <a class="socials__link link" href="" target="_blank" rel="noreferrer noopener"
+              >Youtube</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <div class="fix-down">
+      <div class="container">
+        <a class="scroll-to-top" href="#hero">
+          <svg class="arrow-top" width="20" height="20">
+            <use href="./images/sprite.svg#arrow-up"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- scripts -->
+    <script src="./js/modal.js"></script>
+    <script src="./js/mobile-menu.js"></script>
+    <script src="./js/mobile-modal.js"></script>
+    <script src="./js/slider.js"></script>
+    <script src="./js/header-scroll.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/animations.js"></script>
+  </body>
+</html>
